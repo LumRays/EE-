@@ -6,7 +6,7 @@ package thread;
 // 引入双重 if 让程序需要加锁的时候进行加锁 同时保证线程安全 保证单例实现唯一实例
 class SingletonLazy3 {
 
-    private static SingletonLazy3 instance = null;
+    private volatile static SingletonLazy3 instance = null;
 
     // 作为要加锁的对象 由于是要在 static 方法中使用锁对象 对象本身也要是 static 的
     private static Object locker = new Object();
