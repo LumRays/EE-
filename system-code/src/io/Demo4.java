@@ -31,6 +31,27 @@ public class Demo4 {
             }
         }
 
+        inputStream.close();
+
+//        =================================================
+
+        // 使用 try with resources 语法解决上述问题
+        // try 代码块执行完毕后 自动调用 close
+        try(InputStream inputStream2 = new FileInputStream("d:/test.txt")) {
+            while (true) {
+                byte[] bytes = new byte[1024];
+                int n = inputStream.read(bytes);
+                if (n == -1) {
+                    break;
+                }
+                for (int i = 0; i < n; i++) {
+                    System.out.printf("%x\n", bytes[i]);
+                }
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
     }
 
 }
