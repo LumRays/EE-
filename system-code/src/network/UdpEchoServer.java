@@ -32,7 +32,7 @@ public class UdpEchoServer {
         }
     }
 
-    private String process(String request) {
+    public String process(String request) {
         return request;
     }
 
